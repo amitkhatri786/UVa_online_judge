@@ -1,0 +1,109 @@
+DICTIONARY IS 
+  dip
+  lip
+  mad
+  map
+maple
+  may
+  pad
+  pip
+  pod
+  pop
+  sap
+  sip
+slice
+slick
+spice
+stick
+stock
+                 dip     lip     mad     map   maple     may     pad     pip     pod     pop     sap     sip   slice   slick   spice   stick   stock
+ 0      dip       0       1       0       0       0       0       1       0       1       0       0       1       0       0       0       0       0
+ 1      lip       1       0       0       0       0       0       0       0       0       0       0       1       0       0       0       0       0
+ 2      mad       0       0       0       1       0       1       1       0       0       0       0       0       0       0       0       0       0
+ 3      map       0       0       1       0       0       1       1       0       0       0       1       0       0       0       0       0       0
+ 4    maple       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+ 5      may       0       0       1       1       0       0       0       0       0       0       0       0       0       0       0       0       0
+ 6      pad       1       0       1       1       0       0       0       0       1       0       1       0       0       0       0       0       0
+ 7      pip       0       0       0       0       0       0       0       0       0       1       0       0       0       0       0       0       0
+ 8      pod       1       0       0       0       0       0       1       0       0       0       0       0       0       0       0       0       0
+ 9      pop       0       0       0       0       0       0       0       1       0       0       0       0       0       0       0       0       0
+10      sap       0       0       0       1       0       0       1       0       0       0       0       1       0       0       0       0       0
+11      sip       1       1       0       0       0       0       0       0       0       0       1       0       0       0       0       0       0
+12    slice       0       0       0       0       0       0       0       0       0       0       0       0       0       1       1       0       0
+13    slick       0       0       0       0       0       0       0       0       0       0       0       0       1       0       0       1       0
+14    spice       0       0       0       0       0       0       0       0       0       0       0       0       1       0       0       0       0
+15    stick       0       0       0       0       0       0       0       0       0       0       0       0       0       1       0       0       1
+16    stock       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       1       0
+6 -->(may)  3 --> (mad)4 --> (map)QUEUE==
+2  3  
+4 --> (map)7 --> (pad)QUEUE==
+3  3  6  
+7 --> (pad)11 --> (sap)QUEUE==
+3  6  6  10  
+7 --> (pad)11 --> (sap)QUEUE==
+6  6  10  6  10  
+1 --> (dip)9 --> (pod)11 --> (sap)QUEUE==
+6  10  6  10  0  8  10  
+1 --> (dip)9 --> (pod)11 --> (sap)QUEUE==
+10  6  10  0  8  10  0  8  10  
+12 --> (sip)QUEUE==
+6  10  0  8  10  0  8  10  11  
+1 --> (dip)9 --> (pod)QUEUE==
+10  0  8  10  0  8  10  11  0  8  
+12 --> (sip)QUEUE==
+0  8  10  0  8  10  11  0  8  11  
+2 --> (lip)9 --> (pod)12 --> (sip)QUEUE==
+8  10  0  8  10  11  0  8  11  1  8  11  
+QUEUE==
+10  0  8  10  11  0  8  11  1  8  11  
+12 --> (sip)QUEUE==
+0  8  10  11  0  8  11  1  8  11  11  
+2 --> (lip)9 --> (pod)12 --> (sip)QUEUE==
+8  10  11  0  8  11  1  8  11  11  1  8  11  
+QUEUE==
+10  11  0  8  11  1  8  11  11  1  8  11  
+12 --> (sip)QUEUE==
+11  0  8  11  1  8  11  11  1  8  11  11  
+2 --> (lip)QUEUE==
+0  8  11  1  8  11  11  1  8  11  11  1  
+2 --> (lip)9 --> (pod)QUEUE==
+8  11  1  8  11  11  1  8  11  11  1  1  8  
+QUEUE==
+11  1  8  11  11  1  8  11  11  1  1  8  
+2 --> (lip)QUEUE==
+1  8  11  11  1  8  11  11  1  1  8  1  
+QUEUE==
+8  11  11  1  8  11  11  1  1  8  1  
+QUEUE==
+11  11  1  8  11  11  1  1  8  1  
+2 --> (lip)QUEUE==
+11  1  8  11  11  1  1  8  1  1  
+2 --> (lip)QUEUE==
+1  8  11  11  1  1  8  1  1  1  
+QUEUE==
+8  11  11  1  1  8  1  1  1  
+QUEUE==
+11  11  1  1  8  1  1  1  
+2 --> (lip)QUEUE==
+11  1  1  8  1  1  1  1  
+2 --> (lip)QUEUE==
+1  1  8  1  1  1  1  1  
+QUEUE==
+1  8  1  1  1  1  1  
+QUEUE==
+8  1  1  1  1  1  
+QUEUE==
+1  1  1  1  1  
+QUEUE==
+1  1  1  1  
+QUEUE==
+1  1  1  
+QUEUE==
+1  1  
+QUEUE==
+1  
+QUEUE==
+
+
+Nnumber of transformation is 34
+
