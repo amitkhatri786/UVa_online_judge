@@ -29,11 +29,7 @@ int isempty()
 
 void push(char x)
 {
-	if(isempty())
-		top++;
-
-	stack[top]=x;
-	top++;
+	stack[++top]=x;
 }
 
 char pop()
@@ -95,6 +91,7 @@ void infix_to_postfix(char infix_exp[],char postfix_exp[])
 int main()
 {
 	char infix_exp[50]="a+b*(c*d-e)*(f+g*h)-i";
+	//char infix_exp[50]="a+b*c";
 	char postfix_exp[50]={0};
 	printf("infix --> %s\n",infix_exp);
 
