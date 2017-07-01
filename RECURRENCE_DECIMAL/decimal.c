@@ -10,7 +10,7 @@ struct X
 
 typedef struct X D;
 D data[MAX_DATA]={0};
-int rec[10000]={0};
+int div[10000]={0};
 
 void process(int a,int b);
 
@@ -29,7 +29,7 @@ int main()
 		{
 			data[i].flag=0;
 			data[i].pos=0;
-			rec[i%10000]=0;
+			div[i%10000]=0;
 		}
 	}
 	return(0);
@@ -39,7 +39,7 @@ void process(int a,int b)
 {
 	int x;
 	int i;
-	int isrec=0;
+	int rem;
 	int count=0;
 	x = a/b;
 	a = a%b;
@@ -47,35 +47,34 @@ void process(int a,int b)
 		printf("%d.0",x);
 	else
 		printf("%d.",x);
-	while(a%b!=0)
+	rem=a%b;
+	while(rem!=0 && data[rem].flag!=1)
 	{
-		a = a*10;
-		rec[count] = a/b;
+		data[rem].flag = 1;
+		data[rem].pos = count;
+		rem = rem*10;
+		div[count] = rem/b;
+		rem=rem%b;
 		count++;
-		if(data[a%b].flag == 1)
-		{
-			isrec=1;
-			break;
-		}
-		data[a%b].flag = 1;
-		data[a%b].pos  = count;
-		a = a%b;
 	}
-	if(isrec==0)
+	if(rem==0)
 	{
 		for(i=0;i<count;i++)
-			printf("%d",rec[i]);
+			printf("%d",div[i]);
 	}
 	else
 	{
-		if(b%10==0)
-			count++;
-		for(i=0;i<data[a%b].pos-1;i++)
-			printf("%d",rec[i]);
+		for(i=0;i<data[rem].pos;i++)
+			printf("%d",div[i]);
 		printf("(");
-		for(;i<count-1;i++)
-			printf("%d",rec[i]);
+		for(i=data[rem].pos;i<count;i++)
+			printf("%d",div[i]);
 		printf(")");
+#if 0
+		for(i=0;i<count;i++)
+			printf("%d ",div[i]);
+		printf("\nflag = %d pos = %d\n",data[rem].flag,data[rem].pos);
+#endif
 	}
 	printf("\n");
 }
